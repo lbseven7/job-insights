@@ -21,6 +21,8 @@ from src.flask_app.more_insights import (
     get_int_from_args,
     build_jobs_urls,
 )
+# 13 - Importei a função get_job
+from .more_insights import get_job
 
 bp = Blueprint("client", __name__, template_folder="templates")
 
@@ -79,12 +81,12 @@ def list_jobs():
     return render_template("list_jobs.jinja2", ctx=ctx)
 
 
-# 13 - Implemente a rota /jobs/<index> que renderiza a página job_page.jinja2
-@bp.route("/jobs/<index>")
-def job_page(index):
-    jobs = read(path="data/jobs.csv")
-    job = jobs[int(index)]
-    return render_template("job_page.jinja2", job=job)
+# 13 - Implementei a rota /jobs/<index> que renderiza a página job.jinja2
+@bp.route("/job/<index>")
+def job(index):
+    jobs_csv = read(path="data/jobs.csv")
+    job_one = get_job(jobs_csv, index)
+    return render_template("job.jinja2", job=job_one)
 
 
 def init_app(app: Flask):
