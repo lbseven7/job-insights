@@ -1,6 +1,4 @@
-# from src.pre_built.counter import count_ocurrences
 from src.pre_built.counter import count_ocurrences
-
 
 # def count_ocurrences(path: str, word: str) -> int:
 #     file = open(path, "r")
@@ -11,6 +9,6 @@ from src.pre_built.counter import count_ocurrences
 
 # 10 - Implemente um teste para a função count_ocurrences
 def test_counter():
-    python = count_ocurrences('data/jobs.csv', 'Python')
-    javascript = count_ocurrences('data/jobs.csv', 'JavaScript')
-    return python, javascript
+    assert count_ocurrences('data/jobs.csv', 'Python') == 1639
+    assert (count_ocurrences('data/jobs.csv', 'JavaScript')) == 122
+    # assert (count_ocurrences('data/jobs.csv', 'lbarbosa')) == 0
