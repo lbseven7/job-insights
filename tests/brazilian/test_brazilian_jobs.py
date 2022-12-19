@@ -12,5 +12,5 @@ def test_brazilian_jobs():
     # {"titulo": "Maquinista", "salario": "2000", "tipo": "trainee"}
     # Deve ser traduzido para:
     # {"title": "Maquinista", "salary": "2000", "type": "trainee"}
-    print('AQUI RESULTADO TRADUZIDO ===>', csv[0])
+    print('AQUI RESULTADO ===>', csv[0])
     # {'title': 'Maquinista', 'salary': '2000', 'type': 'trainee'}
