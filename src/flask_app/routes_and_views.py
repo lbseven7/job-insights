@@ -79,5 +79,13 @@ def list_jobs():
     return render_template("list_jobs.jinja2", ctx=ctx)
 
 
+# 13 - Implemente a rota /jobs/<index> que renderiza a página job_page.jinja2
+@bp.route("/jobs/<index>")
+def job_page(index):
+    jobs = read(path="data/jobs.csv")
+    job = jobs[int(index)]
+    return render_template("job_page.jinja2", job=job)
+
+
 def init_app(app: Flask):
     app.register_blueprint(bp)
